@@ -3,6 +3,7 @@ package COM.TQC.GDD01;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Notification;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -100,6 +101,10 @@ public class MainActivity extends AppCompatActivity
   public void goToNotificationSettings(String channel)
   {
     //  TO DO
+    Intent intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+    intent.putExtra(Settings.EXTRA_APP_PACKAGE,  getPackageName());
+    intent.putExtra(Settings.EXTRA_CHANNEL_ID,channel);
+    startActivity(intent);
   }
 
   @Override
